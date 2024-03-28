@@ -2,8 +2,7 @@
 
 ## Overview
 
-This paper aims to analyze whether the American public believes that the government provides adequate public welfare actions under different economic conditions.
-
+This paper explores the American public's perception of government adequacy in providing welfare under varying economic conditions. It examines the relationship between economic cycles and public opinion on government welfare actions, seeking to understand if and how economic downturns, recoveries, and periods of growth influence public expectations and satisfaction with welfare provisions. Through analyzing public sentiment across different economic phases, the study aims to shed light on the effectiveness and responsiveness of welfare policies in addressing the needs of the population during times of economic change.
 
 ## File Structure
 
