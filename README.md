@@ -1,4 +1,4 @@
-# Social Media and Mental Health
+# Welfare Expectations Across U.S. Economic Cycles
 
 ## Overview
 
