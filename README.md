@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder is used to analyze the impact of social media platforms on users’ mental health.
+This paper aims to analyze whether the American public believes that the government provides adequate public welfare actions under different economic conditions.
 
 
 ## File Structure
