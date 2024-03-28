@@ -28,7 +28,7 @@ Due to licensing and copyright restrictions, we are unable to include the raw da
 
 Step 1: Visit the GSS Website
 
-The GSS data can be accessed through the NORC at the University of Chicago. Start by visiting the GSS website: https://gssdataexplorer.norc.org/variables/4/vshow.
+The GSS data can be accessed through the NORC at the University of Chicago. Start by visiting the GSS website: [https://gssdataexplorer.norc.org/variables/4/vshow](https://gssdataexplorer.norc.org/variables/191/vshow).
 
 Step 2: Register for Access
 
