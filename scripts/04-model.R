@@ -1,37 +1,39 @@
 #### Preamble ####
-# Purpose: Models... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Code for replicating GSS Tables and Graphs in the Paper
+# Author: Tianen (Evan) Hao
+# Date: 29 March 2024 
+# Contact: evan.hao@mail.utoronto.ca 
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: R 4.3.2, cleaned_Data.csv
 
 
-#### Workspace setup ####
-library(tidyverse)
-library(rstanarm)
+# Assuming 'summary_data' contains the year, natfare type, and count of responses
+# And that 'total_responses_per_year' contains the total responses per year
 
-#### Read data ####
-analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
+# Calculating the proportion of "Too Little" responses for each year
+too_little_data <- summary_data %>%
+  filter(natfare == "Too Little") %>%
+  mutate(proportion_too_little = count / total_responses_per_year$total_responses)
 
-### Model data ####
-first_model <-
-  stan_glm(
-    formula = flying_time ~ length + width,
-    data = analysis_data,
-    family = gaussian(),
-    prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
-    prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
-    prior_aux = exponential(rate = 1, autoscale = TRUE),
-    seed = 853
-  )
+# Linear model to assess the trend of "Too Little" responses over years
+model <- lm(proportion_too_little ~ year, data = too_little_data)
 
+# Summary of the model to check for significance and trend
+summary(model)
+
+# Visualizing the trend
+ggplot(too_little_data, aes(x = year, y = proportion_too_little)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "blue") +
+  labs(title = "Trend of 'Too Little' Responses Over Years",
+       x = "Year",
+       y = "Proportion of 'Too Little' Responses",
+       caption = "Linear model showing the trend of 'Too Little' responses indicating public perception of welfare inadequacy over time.") +
+  theme_minimal()
 
 #### Save model ####
+# LINEAR MODEL
 saveRDS(
-  first_model,
-  file = "models/first_model.rds"
+  analysis_of_the_trend_model,
+  file = "~/Welfare and The Economy/models/analysis_of_the_trend_model.rds"
 )
-
-
