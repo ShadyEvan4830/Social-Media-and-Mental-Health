@@ -7,19 +7,30 @@
 # Pre-requisites: R 4.3.2, cleaned_Data.csv
 
 
-# Assuming 'summary_data' contains the year, natfare type, and count of responses
-# And that 'total_responses_per_year' contains the total responses per year
+library(tidyverse)
 
-# Calculating the proportion of "Too Little" responses for each year
-too_little_data <- summary_data %>%
-  filter(natfare == "Too Little") %>%
-  mutate(proportion_too_little = count / total_responses_per_year$total_responses)
+# Assuming 'cleaned_data' is already loaded and it has 'year', 'id', and 'response' columns.
+
+# Calculate the total responses per year
+total_responses_per_year <- cleaned_data %>%
+  group_by(year) %>%
+  summarise(total_responses = n())
+
+# Calculate the count of "Too Little" responses per year
+too_little_responses <- cleaned_data %>%
+  filter(response == "Too Little") %>%
+  count(year)
+
+# Merge the counts with the total responses
+too_little_data <- too_little_responses %>%
+  left_join(total_responses_per_year, by = "year") %>%
+  mutate(proportion_too_little = n / total_responses)
 
 # Linear model to assess the trend of "Too Little" responses over years
 model <- lm(proportion_too_little ~ year, data = too_little_data)
 
 # Summary of the model to check for significance and trend
-summary(model)
+summary_model <- summary(model)
 
 # Visualizing the trend
 ggplot(too_little_data, aes(x = year, y = proportion_too_little)) +
@@ -31,9 +42,19 @@ ggplot(too_little_data, aes(x = year, y = proportion_too_little)) +
        caption = "Linear model showing the trend of 'Too Little' responses indicating public perception of welfare inadequacy over time.") +
   theme_minimal()
 
-#### Save model ####
-# LINEAR MODEL
-saveRDS(
-  analysis_of_the_trend_model,
-  file = "~/Welfare and The Economy/models/analysis_of_the_trend_model.rds"
-)
+# Attempt to save the model and catch any errors
+tryCatch({
+  saveRDS(model, file = "~/Welfare and The Economy/models/analysis_of_the_trend_model.rds")
+  file_info <- file.info("~/Welfare and The Economy/models/analysis_of_the_trend_model.rds")
+  if (!is.na(file_info$mtime)) {
+    print(paste("Model saved successfully. Last modified:", file_info$mtime))
+  } else {
+    print("The file does not exist. It may not have been saved correctly.")
+  }
+}, error = function(e) {
+  print(paste("An error occurred:", e$message))
+})
+
+# To print the summary of the model
+print(summary_model)
+
