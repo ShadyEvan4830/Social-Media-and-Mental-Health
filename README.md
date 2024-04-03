@@ -18,7 +18,7 @@ The repo is structured as:
 
 ## Statement on LLM usage
 
-~ inputs/llm/usage.txt: The ChatGPT-4 language model was utilized in authoring this report to garner insights and recommendations for addressing issues within the GSS welfare dataset. ChatGPT-4 offered the author various indicators that aid in identifying problems and potential solutions influenced by model trends (refer to usage.txt for detailed information); these insights prompted the author to include certain third-party journal research in the present paper as supplemental empirical evidence to bolster the conclusions drawn from the welfare analysis. Additionally, ChatGPT-4 contributed suggestions for grammatical and structural refinements to the content of the paper, enhancing clarity and brevity.
+- `inputs/llm/usage.text` The ChatGPT-4 language model was utilized in authoring this report to garner insights and recommendations for addressing issues within the GSS welfare dataset. ChatGPT-4 offered the author various indicators that aid in identifying problems and potential solutions influenced by model trends (refer to usage.txt for detailed information); these insights prompted the author to include certain third-party journal research in the present paper as supplemental empirical evidence to bolster the conclusions drawn from the welfare analysis. Additionally, ChatGPT-4 contributed suggestions for grammatical and structural refinements to the content of the paper, enhancing clarity and brevity.
 
 
 ## Access to GSS Data
