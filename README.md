@@ -1,4 +1,5 @@
 # Welfare Expectations Across U.S. Economic Cycles
+## Analysis of the the American public's views on government provision of benefits under different economic conditions over the past 50 years
 
 ## Overview
 
