@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Clean GSS Dataset
 # Author: Tianen (Evan) Hao
-# Date: 11 March 2024 
+# Date: 28 March 2024 
 # Contact: evan.hao@mail.utoronto.ca 
 # License: MIT
 # Pre-requisites: R 4.3.2
@@ -80,3 +80,22 @@ categorized_data <- bind_rows(categorized_data, total_row_df)
 
 # Preview the first five rows
 print(head(categorized_data))
+
+
+# Assuming 'cleaned_data' has 'year', 'id', and 'response' columns.
+# Calculate the total responses per year
+total_responses_per_year <- cleaned_data %>%
+  group_by(year) %>%
+  summarise(total_responses = n())
+
+# Calculate the count of "Too Little" responses per year
+too_little_responses <- cleaned_data %>%
+  filter(response == "Too Little") %>%
+  count(year)
+
+# Merge the counts with the total responses
+too_little_data <- too_little_responses %>%
+  left_join(total_responses_per_year, by = "year") %>%
+  mutate(proportion_too_little = n / total_responses)
+
+write_csv(too_little_data, "~/Welfare and The Economy/data/analysis_data/too_little_data.csv")
