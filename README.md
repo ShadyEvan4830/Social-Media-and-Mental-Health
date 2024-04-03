@@ -18,33 +18,33 @@ The repo is structured as:
 
 ## Statement on LLM usage
 
-No LLMs were used
+~ inputs/llm/usage.txt: The ChatGPT-4 language model was utilized in authoring this report to garner insights and recommendations for addressing issues within the GSS welfare dataset. ChatGPT-4 offered the author various indicators that aid in identifying problems and potential solutions influenced by model trends (refer to usage.txt for detailed information); these insights prompted the author to include certain third-party journal research in the present paper as supplemental empirical evidence to bolster the conclusions drawn from the welfare analysis. Additionally, ChatGPT-4 contributed suggestions for grammatical and structural refinements to the content of the paper, enhancing clarity and brevity.
 
 
 ## Access to GSS Data
 
-Due to licensing and copyright restrictions, we are unable to include the raw data from the General Social Survey (GSS) directly in this repository. The GSS data is essential for replicating the analysis presented in our study. To facilitate access to the necessary datasets, we provide detailed instructions below on how you can obtain the data directly from the source.
+Licensing and copyright constraints prevent the direct inclusion of the raw General Social Survey (GSS) data within this repository. The GSS data is crucial for the replication of the analyses conducted in our study. Below, we provide comprehensive instructions on how to acquire the data straight from the original source to aid in obtaining the datasets necessary for replication.
 
-Step 1: Visit the GSS Website
+Step 1: Navigate to the GSS Website
 
-The GSS data can be accessed through the NORC at the University of Chicago. Start by visiting the GSS website: [https://gssdataexplorer.norc.org/variables/4/vshow](https://gssdataexplorer.norc.org/variables/191/vshow).
+Access to the GSS data is provided by NORC at the University of Chicago. Begin by going to the GSS website: https://gssdataexplorer.norc.org/variables/4/vshow.
 
-Step 2: Register for Access
+Step 2: Sign Up for Access
 
-To download the GSS data, you may be required to register for an account. This process is straightforward and ensures responsible use of the data. Follow the registration instructions provided on the GSS website.
+You will likely need to create an account to download the GSS data. This simple registration process promotes the data's responsible utilization. Adhere to the registration guidelines available on the GSS website.
 
-Step 3: Locate the Relevant Datasets
+Step 3: Identify the Appropriate Datasets
 
-Once registered, you can access the datasets. For our analysis, we utilized the data concerning "number of hours worked last week" spanning from 1972 to 2022. The GSS website provides a search and filter function to help you find specific datasets.
+Post-registration, the datasets become accessible. For our study, we used the "number of hours worked last week" data, covering the period from 1972 to 2022. The GSS website's search and filtering tools can assist you in pinpointing the exact datasets you need.
 
-Step 4: Download the Data
+Step 4: Obtain the Data
 
-After locating the relevant datasets, you can proceed to download them. The GSS website offers data in various formats, so choose the one that is most compatible with your analysis tools.
+Once you have found the datasets you need, you are ready to download them. The GSS website allows you to download data in a range of formats. Select the format that best suits the analysis software you plan to use.
 
-Step 5: Follow the Codebook
+Step 5: Consult the Codebook
 
-The GSS provides a comprehensive codebook detailing each variable and its coding. We strongly recommend reviewing the codebook to understand the dataset's structure, variables, and any changes over time that might affect your analysis.
+The GSS includes a detailed codebook that explains each variable and its coding scheme. To fully comprehend the dataset's structure, variables, and any temporal changes that could influence your analysis, it is crucial to consult the codebook.
 
-Using the Data Responsibly
+Responsible Data Use
 
-Please ensure that you use the GSS data in accordance with the terms and conditions specified by NORC. This typically includes using the data for research purposes only and citing the GSS appropriately in your work.
+It is imperative to use the GSS data in line with NORC's specified terms and conditions. Typically, this involves employing the data exclusively for scholarly research and crediting the GSS as required in your scholarly outputs.
