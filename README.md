@@ -20,8 +20,8 @@ The repo is structured as:
 
 When the author tried to complete the conversion of cleaned_data into parquet format, he encountered a problem that was difficult to fix. The specific error code is as follows:
 
-"Error in parquet___arrow___ArrowReaderProperties__Make(isTRUE(use_threads)) :
-   Cannot call parquet___arrow___ArrowReaderProperties__Make(). See https://arrow.apache.org/docs/r/articles/install.html for help installing Arrow C++ libraries. ”
+> Error in parquet___arrow___ArrowReaderProperties__Make(isTRUE(use_threads)) :
+   Cannot call parquet___arrow___ArrowReaderProperties__Make(). See https://arrow.apache.org/docs/r/articles/install.html for help installing Arrow C++ libraries.
 
 The arrow package is an interface to the Apache Arrow C++ libraries, and Parquet is a columnar storage file format that is optimized for use with data analysis tools. The error message Cannot call parquet___arrow___ArrowReaderProperties__Make() specifically means that the R session tried to execute a function related to reading Parquet files but failed because it couldn't find the necessary underlying Arrow C++ library functions.
 
