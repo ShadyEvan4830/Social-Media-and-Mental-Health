@@ -16,7 +16,7 @@ The repo is structured as:
 -   `paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
 -   `scripts` contains the R scripts used to simulate, download and clean data.
 
-## Statement on Parquet
+## Statement on Parquet File
 
 When the author tried to complete the conversion of cleaned_data into parquet format, he encountered a problem that was difficult to fix. The specific error code is as follows:
 
