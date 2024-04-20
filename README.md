@@ -3,7 +3,11 @@
 
 ## Overview
 
-This paper explores the American public's perception of government adequacy in providing welfare under varying economic conditions. It examines the relationship between economic cycles and public opinion on government welfare actions, seeking to understand if and how economic downturns, recoveries, and periods of growth influence public expectations and satisfaction with welfare provisions. Through analyzing public sentiment across different economic phases, the study aims to shed light on the effectiveness and responsiveness of welfare policies in addressing the needs of the population during times of economic change.
+This paper investigates how economic conditions have influenced public views on government welfare over fifty years. It questions whether public expectations for welfare match the economic cycles. The study uses the General Social Survey (GSS) Welfare data to explore American public opinion on welfare adequacy during economic fluctuations.
+
+Findings indicate that public welfare preferences vary with the economy—decreasing during growth periods and intensifying during recessions. The research also uncovers that welfare expectations differ significantly across income groups, highlighting the need for nuanced welfare policies.
+
+The study emphasizes that welfare policies should be adaptable to economic changes and sensitive to diverse societal needs, aiming for equitable welfare strategies that align with economic realities.
 
 ## File Structure
 
