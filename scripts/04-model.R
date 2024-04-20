@@ -12,13 +12,13 @@ library(rstanarm)
 library(arrow)
 
 #### Read data #### -- put this section into cleaning "additional data set for model"
-too_little_data <- read_csv("~/Welfare and The Economy/data/analysis_data/too_little_data.csv")
+model_data <- read_csv("~/Welfare and The Economy/data/analysis_data/model_data.csv")
 
 ### Model data ####
 first_model <-
   stan_glm(
     formula = total_responses ~ year,
-    data = too_little_data,
+    data = model_data,
     family = gaussian(),
     prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
     prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
