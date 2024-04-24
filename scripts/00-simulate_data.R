@@ -1,40 +1,58 @@
 #### Preamble ####
 # Purpose: Simulates number of reports in different amount of hours working
 # Author: Tianen (Evan) Hao
-# Date: 14 March 2023 
+# Date: 29 March 2023 
 # Contact: evan.hao@mail.utoronto.ca 
 # License: MIT
 # Pre-requisites: none
 
-#### Workspace setup ####
+# Workplace setup and Load necessary libraries
 library(tibble)
 library(dplyr)
-library(tidyr)
+library(ggplot2)
 
-#### Simulate data ####
-# Define years and work hours categories
+# Define the years and categories for responses
+years <- seq(1972, 2022, by = 2)  # Every two years from 1972 to 2022
+response_types <- c("Too Little", "About Right", "Too Much")
 
-# Some of the years are not included due to the fact that many years are
-# missing from the GSS data set
-years <- c(1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 
-           2002, 2003, 2004, 2005, 2006, 2008, 2010, 2012, 2014, 2016, 
-           2018, 2021, 2022)
-work_hours_categories <- c("No Response", "0-20", "21-40", "41-60", "61-80")
+# Set seed for reproducibility
+set.seed(123)
 
-# Simulate data
-set.seed(123) # For reproducibility
-simulated_data <- tibble(year = rep(years, each = length(work_hours_categories)),
-                         work_hours = rep(work_hours_categories, times = length(years)),
-                         value = runif(n = length(years) * length(work_hours_categories), min = 50, max = 2000))
+# Create a tibble with simulated data
+simulated_data <- expand.grid(year = years, response_type = response_types) %>%
+  mutate(count_responses = runif(n = n(), min = 100, max = 1000))  # Random counts between 100 and 1000
 
-# Pivot to wide format
+# View the first few rows of the simulated data
+head(simulated_data)
+
+# Pivot data to wide format
 simulated_data_wide <- simulated_data %>%
-  pivot_wider(names_from = year, values_from = value)
+  pivot_wider(names_from = response_type, values_from = count_responses)
 
-# Round the values to remove decimals
+# Round the values to make them easier to read
 simulated_data_wide <- simulated_data_wide %>%
-  mutate(across(-work_hours, round))
+  mutate(across(.cols = starts_with("Too"), .fns = round))
 
-# Check the range for a specific year (e.g., 2022)
-test_year_range <- all(simulated_data_wide[["2022"]] >= 50 & simulated_data_wide[["2022"]] <= 2000)
-print(paste("Test Year Range for 2022: ", test_year_range))
+# Print the wide format data
+print(simulated_data_wide)
+
+# Plotting the data
+ggplot(simulated_data, aes(x = year, y = count_responses, color = response_type)) +
+  geom_line() +
+  labs(title = "Simulated Public Responses to Welfare Adequacy Over Time",
+       x = "Year",
+       y = "Number of Responses",
+       color = "Response Type") +
+  theme_minimal()
+
+# Compute summary statistics
+summary_stats <- simulated_data %>%
+  group_by(response_type) %>%
+  summarize(mean_responses = mean(count_responses),
+            median_responses = median(count_responses),
+            max_responses = max(count_responses),
+            min_responses = min(count_responses))
+
+# Display summary statistics
+print(summary_stats)
+
