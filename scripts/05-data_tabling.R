@@ -250,7 +250,7 @@ kable(
 ) %>%
   kable_styling(bootstrap_options = c("striped", "hover"))
 
-# Trends in About Right Responses
+# Trends in Too Much Responses
 
 library(ggplot2)
 library(dplyr)
